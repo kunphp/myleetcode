@@ -1,6 +1,6 @@
 # myleetcode
 ## mysql
-** 1、编写一个 SQL 查询来实现分数排名。如果两个分数相同，则两个分数排名（Rank）相同 **
+**1、编写一个 SQL 查询来实现分数排名。如果两个分数相同，则两个分数排名（Rank）相同 **
 
 | Id | Score |
 |----|-------|
@@ -21,7 +21,7 @@
   order by a.Score desc
   // 思路：分数比大小查询出不重复的分数的数量作为排名
 ```
-** 2、编写一个 SQL 查询，获取 Employee 表中第 n 高的Salary。**
+**2、编写一个 SQL 查询，获取 Employee 表中第 n 高的Salary。**
 
 | Id | Salary |
 |----|--------|
