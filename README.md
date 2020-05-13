@@ -1,5 +1,6 @@
 # myleetcode
 ## mysql
+
 **1、编写一个 SQL 查询来实现分数排名。如果两个分数相同，则两个分数排名（Rank）相同 **
 
 | Id | Score |
@@ -52,6 +53,7 @@
 ```
 
 **4、编写一个 SQL 查询，查找各个部门工资最高的员工（有可能多个最高）。**
+
 `Employee表`
 
 | Id | Name  | Salary | DepartmentId |
@@ -75,6 +77,7 @@ where
 //思路：in方法多个字段的使用
 ```
 **5、编写一个 SQL 查询，找出每个部门获得前三高工资的所有员工**
+
 `Employee表`
 
 | Id | Name  | Salary | DepartmentId |
@@ -86,6 +89,7 @@ where
 | 5  | Janet | 69000  | 1            |
 | 6  | Randy | 85000  | 1            |
 | 7  | Will  | 70000  | 1            |
+
 `Department` 表包含公司所有部门的信息。
 
 | Id | Name     |
