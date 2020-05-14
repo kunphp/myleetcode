@@ -1,7 +1,7 @@
 # myleetcode
 ## mysql
 
-**1、编写一个 SQL 查询来实现分数排名。如果两个分数相同，则两个分数排名（Rank）相同 **
+**1、编写一个 SQL 查询来实现分数排名。如果两个分数相同，则两个分数排名（Rank）相同**
 
 | Id | Score |
 |----|-------|
@@ -125,6 +125,7 @@ ORDER BY DepartmentId,Salary DESC
 ```
 
 **6、编写一个 SQL 查询，将学生信息和成绩汇总为一行**
+
 `Scores表`
 
 | Id | item  | Score | StudentId |
@@ -138,6 +139,7 @@ ORDER BY DepartmentId,Salary DESC
 | 7  | 英语  | 84  | 1            |
 | 8  | 数学  | 82  | 3            |
 | 9  | 英语  | 99  | 3            |
+
 `Student` 表包含公司所有部门的信息。
 
 | Id | Name   |
