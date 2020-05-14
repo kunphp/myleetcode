@@ -123,3 +123,47 @@ WHERE
 ) <= 3  //核心：查出相同部门而且Salary比我高的人数不超过3个
 ORDER BY DepartmentId,Salary DESC
 ```
+
+**6、编写一个 SQL 查询，将学生信息和成绩汇总为一行**
+`Scores表`
+
+| Id | item  | Score | StudentId |
+|----|-------|--------|--------------|
+| 1  | 语文   | 100  | 1            |
+| 2  | 数学 | 98  | 2            |
+| 3  | 英语   | 72  | 2            |
+| 4  | 语文   | 95  | 3            |
+| 5  | 数学 | 93  | 1            |
+| 6  | 语文 | 89  | 2            |
+| 7  | 英语  | 84  | 1            |
+| 8  | 数学  | 82  | 3            |
+| 9  | 英语  | 99  | 3            |
+`Student` 表包含公司所有部门的信息。
+
+| Id | Name   |
+|----|--------|
+| 1  |ZhangSan|
+| 2  |LiSi    |
+| 3  |WangWu  |
+
+根据上述给定的表，查询结果应返回：
+
+| 姓名 | 语文 | 数学 | 英语 |
+|------|-----|------|-----|
+| ZhangSan| 100  | 93 | 94 |
+| LiSi   | 89| 98 | 72 |
+| WangWu  | 95 | 82  |99|
+
+
+```mysql
+select 
+     tmp.Name '姓名',
+	 max(case item when '语文' then Score end) '语文',
+	 max(case item when '数学' then Score end) '数学',
+	 max(case item when '英语' then Score end) '英语'
+from 
+(
+	select s.`item`,s.`Score`,s.StudentId,t.Name from Scores s LEFT join  Student t on t.Id = s.StudentId 
+) as tmp
+GROUP BY StudentId
+```
