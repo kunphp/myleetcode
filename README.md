@@ -169,3 +169,27 @@ from
 ) as tmp
 GROUP BY StudentId
 ```
+
+## 算法
+**1、一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积**
+```php
+class Solution {
+
+    /**
+     * @param Integer[] $nums
+     * @return Integer
+     */
+    function maxProduct($nums) {
+        $n = count($nums);
+        $maxs[0] = $nums[0];
+        $mins[0] = $nums[0];
+        $max = $nums[0];
+        for($i = 1; $i < $n; $i++){
+            $maxs[$i] = max($maxs[$i-1]*$nums[$i],max($mins[$i-1]*$nums[$i],$nums[$i]));
+            $mins[$i] = min($mins[$i-1]*$nums[$i],min($maxs[$i-1]*$nums[$i],$nums[$i]));
+            $max = max($max, $maxs[$i]);
+        }
+        return $max;
+    }
+}
+```
