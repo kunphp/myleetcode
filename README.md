@@ -210,7 +210,7 @@ function getTwoSum($numbers, $target):array {
     }
 }
 //$list = [2,7,9,4,3,8];
-//print_r(getTwoSum($list, 17)); 输出[1，5]
+//print_r(getTwoSum($list, 17)); //输出[1，5]
 ```
 
 
