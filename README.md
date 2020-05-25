@@ -201,14 +201,14 @@ class Solution {
 因为 nums[0] + nums[1] = 2 + 7 = 9，所以返回 [0, 1]
 
 ```php
-    function getTwoSum($numbers, $target):array {
-        foreach ($numbers as $k => $v){
-            $tmp = $target - $v;
-            if(in_array($tmp, $numbers)){ //判断target减去数组其中一个数的结果是否也存在于数组
-                return [$k, array_search($tmp, $numbers)]; 
-            }
+function getTwoSum($numbers, $target):array {
+    foreach ($numbers as $k => $v){
+        $tmp = $target - $v;
+        if(in_array($tmp, $numbers)){ //判断target减去数组其中一个数的结果是否也存在于数组
+            return [$k, array_search($tmp, $numbers)];
         }
     }
-    //$list = [2,7,9,4,3,8];
-    //print_r(getTwoSum($list, 17)); 输出[1，5]
+}
+//$list = [2,7,9,4,3,8];
+//print_r(getTwoSum($list, 17)); 输出[1，5]
 ```
