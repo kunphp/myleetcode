@@ -212,3 +212,27 @@ function getTwoSum($numbers, $target):array {
 //$list = [2,7,9,4,3,8];
 //print_r(getTwoSum($list, 17)); 输出[1，5]
 ```
+
+
+
+**3、给定一组石头，每个石头有一个正数的重量。每一轮开始的时候，选择两个石头一起碰撞，假定两个石头的重量为x，y，x<=y,碰撞结果为
+1. 如果x==y，碰撞结果为两个石头消失；2. 如果x != y，碰撞结果两个石头消失，生成一个新的石头，新石头重量为y-x。最终最多剩下一个石头为结束。求解最小的剩余石头质量的可能性是多少。
+样例：
+输入rocks = [2,7,4,1,8,1]，返回 1
+
+```php
+//进行倒排然后依次相减取绝对值
+function getMinRock($rocks){
+    rsort($rocks); 
+    $tmp = abs($rocks[0] - $rocks[1]);
+    $length = count($rocks);
+    if($length > 2){
+        for ($i = 2;$i<$length;$i++){
+            $tmp = abs($tmp - $rocks[$i]);
+        }
+    }
+    return $tmp;
+}
+$list = [2,7,9,3,4,13,8];
+echo getMinRock($list); //输出 0
+```
