@@ -208,9 +208,43 @@ function getTwoSum($numbers, $target):array {
 //print_r(getTwoSum($list, 17)); //输出[1，5]
 ```
 
+**3、给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。注意：答案中不可以包含重复的三元组。**
+示例：
+给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+满足要求的三元组集合为：
+[
+  [-1, 0, 1],
+  [-1, -1, 2]
+]
 
+```php
+//根据上题引申思路：可把上题的$target作为-a,
+function getZeroNumbers($list):array {
+    $len = count($list);
+    $result = [];
+    if($len<3){
+        return $result;
+    }
+    for($i=0;$i<$len;$i++){
+        $target = $list[$i];
+        unset($list[$i]);
+        for ($j=$i+1;$j<$len;$j++){
+            $tmp = -($target + $list[$j]);//c=-(a+b)
+            if(in_array($tmp, $list) && array_search($tmp, $list)!= $j){
+                $result[] = [$target, $list[$j], $tmp];
+            }
+        }
+    }
+    //结果存在重复的，先排序找出重复的进行过滤
+    foreach ($result as $key => $value){
+        sort($result[$key]);
+    }
+    $result = array_unique($result, SORT_REGULAR );
+    return $result;
+}
+```
 
-**3、给定一组石头，每个石头有一个正数的重量。每一轮开始的时候，选择两个石头一起碰撞，假定两个石头的重量为x，y，x<=y,碰撞结果为1. 如果x==y，碰撞结果为两个石头消失；2. 如果x != y，碰撞结果两个石头消失，生成一个新的石头，新石头重量为y-x。最终最多剩下一个石头为结束。求解最小的剩余石头质量的可能性是多少。**
+**4、给定一组石头，每个石头有一个正数的重量。每一轮开始的时候，选择两个石头一起碰撞，假定两个石头的重量为x，y，x<=y,碰撞结果为1. 如果x==y，碰撞结果为两个石头消失；2. 如果x != y，碰撞结果两个石头消失，生成一个新的石头，新石头重量为y-x。最终最多剩下一个石头为结束。求解最小的剩余石头质量的可能性是多少。**
 
 样例：
 输入rocks = [2,7,4,1,8,1]，返回 1
@@ -231,7 +265,8 @@ function getMinRock($rocks){
 //$list = [2,7,9,3,4,13,8];
 //echo getMinRock($list); //输出 0
 ```
-**4、给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。在 S 上反复执行重复项删除操作，直到无法继续删除。**
+
+**5、给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。在 S 上反复执行重复项删除操作，直到无法继续删除。**
 
 示例：
 输入："abbaca"；输出："ca"
