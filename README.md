@@ -1,5 +1,11 @@
 # myleetcode
-## mysql
+----
+## 目录
+1. [mysql](#jump1)
+2. [算法](#jump2)
+---
+
+## <span id="jump1">mysql</span>
 
 **1、编写一个 SQL 查询来实现分数排名。如果两个分数相同，则两个分数排名（Rank）相同**
 
@@ -170,7 +176,7 @@ from
 GROUP BY StudentId
 ```
 
-## 算法
+## <span id="jump2">算法</span>
 **1、一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积**
 ```php
 
@@ -209,6 +215,7 @@ function getTwoSum($numbers, $target):array {
 ```
 
 **3、给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。注意：答案中不可以包含重复的三元组。**
+
 示例：
 给定数组 nums = [-1, 0, 1, 2, -1, -4]，
 满足要求的三元组集合为：
