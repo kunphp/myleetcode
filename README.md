@@ -173,12 +173,7 @@ GROUP BY StudentId
 ## 算法
 **1、一个整数数组 nums ，请你找出数组中乘积最大的连续子数组（该子数组中至少包含一个数字），并返回该子数组所对应的乘积**
 ```php
-class Solution {
 
-    /**
-     * @param Integer[] $nums
-     * @return Integer
-     */
     function maxProduct($nums) {
         $n = count($nums);
         $maxs[0] = $nums[0];
@@ -191,7 +186,7 @@ class Solution {
         }
         return $max;
     }
-}
+
 ```
 
 **2、给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。你可以假设每种输入只会对应一个答案。但是，你不能重复利用这个数组中同样的元素。**
@@ -233,6 +228,27 @@ function getMinRock($rocks){
     }
     return $tmp;
 }
-$list = [2,7,9,3,4,13,8];
-echo getMinRock($list); //输出 0
+//$list = [2,7,9,3,4,13,8];
+//echo getMinRock($list); //输出 0
+```
+**4、给出由小写字母组成的字符串 S，重复项删除操作会选择两个相邻且相同的字母，并删除它们。在 S 上反复执行重复项删除操作，直到无法继续删除。**
+示例：
+输入："abbaca"；输出："ca"
+```php
+//将字符进行进行入栈/出栈（相同时）操作
+function getReString($str){
+    $arr = str_split($str);
+    $list = [];
+    foreach ($arr as $k=>$v){
+        if(end($list)==$v){
+            array_pop($list);
+        }else{
+            array_push($list, $v);
+        }
+        print_r($list);
+    }
+    return implode($list);
+}
+//$str = 'saasjkh';
+//echo getReString($str);//输出jkh
 ```
