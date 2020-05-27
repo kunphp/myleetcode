@@ -295,3 +295,52 @@ function getReString($str){
 //$str = 'saasjkh';
 //echo getReString($str);//输出jkh
 ```
+**6、给定一个 没有重复 数字的序列，返回其所有可能的全排列**
+
+示例:
+
+输入: [1,2,3] 
+输出: 
+[ 
+  [1,2,3], 
+  [1,3,2], 
+  [2,1,3], 
+  [2,3,1], 
+  [3,1,2], 
+  [3,2,1] 
+]
+
+【解题思路】
+> 这是一道经典的回溯算法。 
+  回溯中参数为原始数组nums，以及当前数组arr 
+  回溯的终止条件为，当前arr的个数已经等于原始数组nums 
+  回溯的处理，循环遍历原始数组nums,当前值不存在arr中时，将该值放入arr中，递归调用 
+  由于上面的行为会找到最终答案，所以，在处理完上面请求时，将arr进行出栈操作，继续遍历
+
+
+```php
+class Solution {
+    function permute($nums){
+        $this->backtracking($nums, []);
+        return $this->res;
+    }
+    function backtracking($nums, $arr){
+        if (count($arr) == count($nums)){
+            $this->res[] = $arr;
+            return;
+        }
+
+        foreach ($nums as $value){
+            if (!in_array($value, $arr)){
+                echo $value.'in---';
+                $arr[] = $value;
+                $this->backtracking($nums, $arr);
+                echo $value.'out--';
+                array_pop($arr);
+            }
+        }
+    }
+}
+//$s = new Solution();
+//print_r($s->permute([1,2,3]));
+```
